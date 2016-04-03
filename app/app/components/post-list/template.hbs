@@ -1,0 +1,15 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+<div class="extra-pagination inner">
+   {{! pagination}}
+</div>
+
+{{! This is the post loop - each post will be output using this markup }}
+
+{{#each postList as |post|}}
+   {{blog-post post=post}}
+{{/each}}
+
+{{! Previous/next page links - displayed on every page }}
+{{! pagination}}
+
+{{yield}}

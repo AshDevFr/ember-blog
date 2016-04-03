@@ -1,0 +1,35 @@
+{{! navigation}}
+
+<div class="site-wrapper">
+
+   {{!< default}}
+   {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+   {{! The big featured header }}
+   <header class="main-header no-cover">
+      <nav class="main-nav overlay clearfix">
+         {{#if model.setting.logo}}<a class="blog-logo" href="{{model.setting.url}}"><img src="{{model.setting.logo}}" alt="{{model.setting.title}}" /></a>{{/if}}
+      </nav>
+      <div class="vertical">
+         <div class="main-header-content inner">
+            <h1 class="page-title">{{model.setting.title}}</h1>
+            <h2 class="page-description">{{model.setting.description}}</h2>
+         </div>
+      </div>
+      <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+   </header>
+
+   {{! The main content area on the homepage }}
+   <main id="content" class="content" role="main">
+
+      {{post-list posts=model.posts author=model.setting.author}}
+
+      {{outlet}}
+
+   </main>
+
+   <footer class="site-footer clearfix">
+      <section class="copyright"><a href="{{model.setting.url}}">{{model.setting.title}}</a> &copy; {{date format="YYYY"}}</section>
+   </footer>
+
+</div>

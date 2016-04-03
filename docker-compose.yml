@@ -1,0 +1,52 @@
+version: "2"
+
+services:
+  frontend:
+    build: ./app/.
+    command: serve --watcher polling --proxy http://backend:1337
+    volumes:
+     - ./app/app/:/home/workspace/app
+     - ./app/config/:/home/workspace/config
+     - ./app/public/:/home/workspace/public
+     - ./app/tests/:/home/workspace/tests
+     - ./app/vendor/:/home/workspace/vendor
+     - ./.tmp/app/:/home/workspace/dist
+    ports:
+     - "4200:4200"
+     - "49152:49152"
+    links:
+     - backend
+    networks:
+      - ember-blog
+
+  backend:
+    build: ./server/.
+    command: lift
+    volumes:
+     - ./server/api:/home/workspace/api
+     - ./server/assets:/home/workspace/assets
+     - ./server/config:/home/workspace/config
+     - ./server/tasks:/home/workspace/tasks
+     - ./server/views:/home/workspace/views
+     - ./server/app.js:/home/workspace/app.js
+    ports:
+     - "1337:1337"
+    links:
+     - db
+    networks:
+      - ember-blog
+
+  db:
+    image: mongo:latest
+    ports:
+    - "27017:27017"
+    volumes:
+      - "db-data:/data/db"
+    networks:
+    - ember-blog
+
+volumes:
+  db-data:
+
+networks:
+  ember-blog:
