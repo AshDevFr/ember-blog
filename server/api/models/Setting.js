@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       key   : 'logo',
-      value : ''
+      value : 'img/BearsJS.png'
     },
     {
       key   : 'cover',

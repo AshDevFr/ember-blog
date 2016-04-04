@@ -1,14 +1,14 @@
 <article class="post">
    <header class="post-header">
-      <h2 class="post-title"><a href="{{post.url}}">{{{post.title}}}</a></h2>
+      <h2 class="post-title">{{#link-to "post" post.slug}}{{{post.title}}}{{/link-to}}</h2>
    </header>
    <section class="post-excerpt">
-      <p>{{excerpt content=post.html words="26"}} <a class="read-more" href="{{post.url}}">&raquo;</a></p>
+      <p>{{excerpt content=post.html words="26"}} {{#link-to "post" post.slug class="read-more"}}&raquo;{{/link-to}}</p>
    </section>
    <footer class="post-meta">
       {{#if post.author.image}}<img class="author-thumb" src="{{post.author.image}}" alt="{{post.author.name}}" nopin="nopin" />{{/if}}
       {{post.author.name}}
-      {{! tags prefix=" on "}}
+      {{post-tags tags=post.tags}}
       <time class="post-date" datetime="{{date post.publishedAt format='YYYY-MM-DD'}}">{{date post.publishedAt format="DD MMMM YYYY"}}</time>
    </footer>
 </article>

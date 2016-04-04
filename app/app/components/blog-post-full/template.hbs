@@ -1,1 +1,46 @@
-{{yield}}
+
+
+<header class="main-header post-head {{if post.image '' 'no-cover'}}" style="{{if post.image (concat 'background-image: url(' post.image ')') }}">
+   <nav class="main-nav {{if post.image 'overlay'}} clearfix">
+      {{#if settings.logo}}{{#link-to "index" class="blog-logo"}}<img src="{{settings.logo}}" alt="{{settings.title}}" />{{/link-to}}{{/if}}
+   </nav>
+</header>
+
+<main class="content" role="main">
+   <article class="post">
+
+      <header class="post-header">
+         <h1 class="post-title">{{post.title}}</h1>
+         <section class="post-meta">
+            <time class="post-date" datetime="{{date post.publishedAt format='YYYY-MM-DD'}}">{{date post.publishedAt format="DD MMMM YYYY"}}</time> {{post-tags tags=post.tags}}
+         </section>
+      </header>
+
+      <section class="post-content">
+         {{{post.html}}}
+      </section>
+
+      <footer class="post-footer">
+
+         {{#if post.author.image}}
+            <figure class="author-image">
+               <a class="img" href="#" style="background-image: url({{post.author.image}})"><span class="hidden">{{post.author.name}}'s Picture</span></a>
+            </figure>
+         {{/if}}
+
+         <section class="author">
+            <h4>{{post.author.name}}</h4>
+
+            {{#if post.author.bio}}
+               <p>{{post.author.bio}}</p>
+            {{/if}}
+            <div class="author-meta">
+               {{#if post.author.location}}<span class="author-location"><i class="fa fa-location-arrow"></i> {{post.author.location}}</span>{{/if}}
+               {{#if post.author.website}}<span class="author-link"><i class="fa fa-link"></i> <a href="{{post.author.website}}">{{post.author.website}}</a></span>{{/if}}
+            </div>
+         </section>
+      </footer>
+
+      {{yield}}
+   </article>
+</main>

@@ -8,12 +8,12 @@
    {{! The big featured header }}
    <header class="main-header no-cover">
       <nav class="main-nav overlay clearfix">
-         {{#if model.setting.logo}}<a class="blog-logo" href="{{model.setting.url}}"><img src="{{model.setting.logo}}" alt="{{model.setting.title}}" /></a>{{/if}}
+         {{#if model.settings.logo}}{{#link-to "index" class="blog-logo"}}<img src="{{model.settings.logo}}" alt="{{model.settings.title}}" />{{/link-to}}{{/if}}
       </nav>
       <div class="vertical">
          <div class="main-header-content inner">
-            <h1 class="page-title">{{model.setting.title}}</h1>
-            <h2 class="page-description">{{model.setting.description}}</h2>
+            <h1 class="page-title">{{model.settings.title}}</h1>
+            <h2 class="page-description">{{model.settings.description}}</h2>
          </div>
       </div>
       <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
@@ -22,14 +22,14 @@
    {{! The main content area on the homepage }}
    <main id="content" class="content" role="main">
 
-      {{post-list posts=model.posts author=model.setting.author}}
+      {{post-list posts=model.posts author=model.settings.author}}
 
       {{outlet}}
 
    </main>
 
    <footer class="site-footer clearfix">
-      <section class="copyright"><a href="{{model.setting.url}}">{{model.setting.title}}</a> &copy; {{date format="YYYY"}}</section>
+      <section class="copyright"><a href="{{model.settings.url}}">{{model.settings.title}}</a> &copy; {{date format="YYYY"}}</section>
    </footer>
 
 </div>

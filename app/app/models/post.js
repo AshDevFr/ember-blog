@@ -28,7 +28,7 @@ export default Model.extend({
   createdAt       : attr('date'),
   tags            : DS.hasMany('tag', {
     embedded : 'always',
-    async    : false
+    async    : true
   }),
   url             : attr('string'),
 
