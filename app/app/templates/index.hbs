@@ -22,7 +22,7 @@
    {{! The main content area on the homepage }}
    <main id="content" class="content" role="main">
 
-      {{post-list posts=model.posts author=model.settings.author}}
+      {{post-list posts=model.posts author=model.settings.author postsPerPage=model.settings.postsPerPage}}
 
       {{outlet}}
 

@@ -17,8 +17,23 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
+  cors: {
+    allRoutes: true
+  },
+
+  connections: {
+    mongodbServer: {
+      adapter: 'sails-mongo',
+      host: 'db',
+      port: 27017,
+      // user: 'username',
+      // password: 'password',
+      // database: 'your_mongo_db_name_here'
+    }
+  },
+  
+  models: {
+    connection: 'mongodbServer'
+  }
 
 };

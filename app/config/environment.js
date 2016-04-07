@@ -28,7 +28,14 @@ module.exports = function(environment) {
 
     ENV.serviceWorker = {
       enabled: true,
-      debug: true
+      debug: true,
+      precacheURLs: [
+        '/settings',
+        '/posts'
+      ],
+      swIncludeFiles: [
+        'config/sw-features.js'
+      ]
     };
     
   }
@@ -46,7 +53,16 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.serviceWorker = {
+      enabled: true,
+      debug: false,
+      precacheURLs: [
+        '/settings'
+      ],
+      swIncludeFiles: [
+        'config/sw-features.js'
+      ]
+    };
   }
 
   return ENV;

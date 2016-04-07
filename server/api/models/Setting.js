@@ -32,7 +32,7 @@ module.exports = {
     },
     {
       key   : 'postsPerPage',
-      value : '10'
+      value : '4'
     }
   ]
 };

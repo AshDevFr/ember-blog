@@ -1,7 +1,14 @@
-{{! Previous/next page links - only displayed on page 2+ }}
-<div class="extra-pagination inner">
-   {{! pagination}}
+{{#if displayPrev}}
+<div class="paged archive-template">
+   <div class="extra-pagination inner">
+      <nav class="pagination">
+         {{#if displayPrev}}<a class="newer-posts" {{action "goPrev"}}><span>←</span> Newer Posts</a>{{/if}}
+         <span class="page-number">Page {{pageNumber}} of {{pageCount}}</span>
+         {{#if displayNext}}<a class="older-posts" {{action "goNext"}}>Older Posts <span>→</span></a>{{/if}}
+      </nav>
+   </div>
 </div>
+{{/if}}
 
 {{! This is the post loop - each post will be output using this markup }}
 
@@ -10,6 +17,10 @@
 {{/each}}
 
 {{! Previous/next page links - displayed on every page }}
-{{! pagination}}
+<nav class="pagination">
+   {{#if displayPrev}}<a class="newer-posts" {{action "goPrev"}}><span>←</span> Newer Posts</a>{{/if}}
+   <span class="page-number">Page {{pageNumber}} of {{pageCount}}</span>
+   {{#if displayNext}}<a class="older-posts" {{action "goNext"}}>Older Posts <span>→</span></a>{{/if}}
+</nav>
 
 {{yield}}
