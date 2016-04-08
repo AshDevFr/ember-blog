@@ -30,8 +30,7 @@ module.exports = function(environment) {
       enabled: true,
       debug: true,
       precacheURLs: [
-        '/settings',
-        '/posts'
+        '/api/settings'
       ],
       swIncludeFiles: [
         'config/sw-features.js'

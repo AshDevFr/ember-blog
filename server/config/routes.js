@@ -46,7 +46,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /posts/:slug': {
+  'get /api/posts/:slug': {
     controller: 'PostController',
     action: 'slug',
     skipAssets: true

@@ -14,7 +14,7 @@ module.exports = {
       name     : 'Tomster',
       slug     : 'tomster',
       email    : 'tomster@localhost.local',
-      image    : 'http://emberjs.com/images/tomster-sm.png',
+      image    : 'img/tomster-sm.png',
       cover    : null,
       bio      : 'Hi, I\'m Tomster, one of the friendly faces of the Ember project and community.',
       website  : 'http://emberjs.com',
