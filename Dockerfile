@@ -16,7 +16,8 @@ RUN npm i --quiet
 RUN cd app && \
     npm i --quiet && \
     bower install --quiet --config.interactive=false --allow-root && \
-    ember build --environment production --output-path ../assets/
+    ember build --environment production --output-path ../assets/ && \
+    mv ../assets/index.html ../views/
 
 
 EXPOSE 1337

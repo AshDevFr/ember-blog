@@ -50,5 +50,10 @@ module.exports.routes = {
     controller: 'PostController',
     action: 'slug',
     skipAssets: true
+  },
+
+  "r|^\/(?!.*api).*|": {
+    view: 'index',
+    skipAssets: true
   }
 };
